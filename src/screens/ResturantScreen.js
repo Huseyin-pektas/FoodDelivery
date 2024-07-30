@@ -4,6 +4,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import * as Icon from "react-native-feather";
 import { themeColor } from '../theme';
 import DishesRow from '../components/DishesRow';
+import CartIcon from '../components/CartIcon';
 
 const ResturantScreen = () => {
     const navigation = useNavigation()
@@ -13,8 +14,11 @@ const ResturantScreen = () => {
     //console.log(item, "itemsss");
     return (
         <View>
+            <CartIcon />
             <StatusBar barStyle={"light-content"} />
-            <ScrollView className='relative' >
+            <ScrollView showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
+                className='relative' >
                 <View className='w-full h-72' >
                     <Image source={item.image} style={{ width: "100%", height: 300 }} resizeMode="center" />
                     <TouchableOpacity onPress={() => navigation.goBack()}
