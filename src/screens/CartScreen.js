@@ -48,9 +48,8 @@ const CartScreen = () => {
                     </TouchableOpacity>
                 </View>
                 {/* dishes */}
-                <ScrollView
-                    showsHorizontalScrollIndicator={false}
-                    contentContainerStyle={{
+                <View
+                    style={{
                         paddingBottom: 50
                     }}
                     className=" pt-5 mb-10"
@@ -77,7 +76,7 @@ const CartScreen = () => {
                             </View>
                         )}
                     />
-                </ScrollView>
+                </View>
 
                 <View style={{
                     backgroundColor: themeColor.bgColor(0.2),
@@ -99,7 +98,8 @@ const CartScreen = () => {
                         <Text className="text-gray-700 font-extrabold"> $ 33</Text>
                     </View>
                     <View>
-                        <TouchableOpacity style={{ backgroundColor: themeColor.bgColor(1) }}
+                        <TouchableOpacity onPress={() => navigation.navigate("OrderPrepairing")}
+                            style={{ backgroundColor: themeColor.bgColor(1) }}
                             className="p-3 rounded-full"
                         >
                             <Text className='text-center text-white font-bold text-lg'>Place Order</Text>
