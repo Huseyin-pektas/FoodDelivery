@@ -28,7 +28,7 @@ const DishesRow = ({ item }) => {
                             <Icon.Minus
                                 height={20} width={20} stroke={"white"} />
                         </TouchableOpacity>
-                        <Text className="px-3">{2}</Text>
+                        <Text className="px-3">{1}</Text>
                         <TouchableOpacity style={{
                             backgroundColor: themeColor.bgColor(1)
                         }} className="p-1 rounded-full">
