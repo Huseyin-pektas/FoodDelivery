@@ -2,9 +2,24 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import * as Icon from "react-native-feather";
 import { themeColor } from '../theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removeFromCart, selectCartItem, selectCartItemById } from '../redux/CartSlice';
 
 
 const DishesRow = ({ item }) => {
+    const dispatch = useDispatch()
+
+    const totalItems = useSelector(state => selectCartItemById(state, item.id))
+    const handleIncrease = () => {
+        dispatch(addToCart({ ...item }))
+    }
+
+    const handleDecrease = () => {
+
+        dispatch(removeFromCart({ id: item.id }))
+    }
+
+
     return (
         <View className='flex-row items-center p-3 rounded-3xl mb-3 shadow-2xl mx-2 bg-white' >
             <Image style={{
@@ -22,16 +37,21 @@ const DishesRow = ({ item }) => {
                         $ {item.price}
                     </Text>
                     <View className="flex-row items-center">
-                        <TouchableOpacity style={{
-                            backgroundColor: themeColor.bgColor(1)
-                        }} className="p-1 rounded-full">
+                        <TouchableOpacity
+                            onPress={handleDecrease}
+                            disabled={!totalItems.length}
+                            style={{
+                                backgroundColor: themeColor.bgColor(1)
+                            }} className="p-1 rounded-full">
                             <Icon.Minus
                                 height={20} width={20} stroke={"white"} />
                         </TouchableOpacity>
-                        <Text className="px-3">{1}</Text>
-                        <TouchableOpacity style={{
-                            backgroundColor: themeColor.bgColor(1)
-                        }} className="p-1 rounded-full">
+                        <Text className="px-3">{totalItems.length}</Text>
+                        <TouchableOpacity
+                            onPress={handleIncrease}
+                            style={{
+                                backgroundColor: themeColor.bgColor(1)
+                            }} className="p-1 rounded-full">
                             <Icon.Plus
                                 height={20} width={20} stroke={"white"} strokeWidth={2} />
                         </TouchableOpacity>

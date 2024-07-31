@@ -3,12 +3,15 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Routes from './src/navigation/Routes';
 import { HomeScreen } from './src/screens';
-
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
 export default function App() {
   return (
-    <NavigationContainer>
-      <Routes />
-    </NavigationContainer>
+    <Provider store={store} >
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
+    </Provider>
   );
 }
 

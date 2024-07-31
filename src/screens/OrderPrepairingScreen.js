@@ -21,7 +21,7 @@ const OrderPrepairingScreen = () => {
         >
             <Image source={require("../images/resturants/Delivery.gif")}
                 className="w-80 max-h-full"
-                resizeMode="center" s
+                resizeMode="center"
             />
 
         </View>

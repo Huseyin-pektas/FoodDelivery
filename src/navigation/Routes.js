@@ -9,13 +9,10 @@ const Stack = createNativeStackNavigator()
 
 const Routes = () => {
     return (
-        <Stack.Navigator initialRouteName='Delivery'
+        <Stack.Navigator initialRouteName='Home'
             screenOptions={{
                 headerShown: false
             }} >
-            <Stack.Screen options={{
-                presentation: "fullScreenModal"
-            }} name='Delivery' component={DelieveryScreen} />
             <Stack.Screen name='Home' component={HomeScreen} />
             <Stack.Screen name='Resturant' component={ResturantScreen} />
             <Stack.Screen options={{
@@ -24,6 +21,9 @@ const Routes = () => {
             <Stack.Screen options={{
                 presentation: "modal"
             }} name='Cart' component={CartScreen} />
+            <Stack.Screen options={{
+                presentation: "fullScreenModal"
+            }} name='Delivery' component={DelieveryScreen} />
         </Stack.Navigator>
     )
 }

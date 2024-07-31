@@ -16,7 +16,7 @@ const ResturantCart = ({ resturant }) => {
                     shadowRadius: 7
                 }}
                 className='mr-6 rounded-3xl shadow-lg bg-white' >
-                <Image className='h-36 w-64 rounded-t-3xl' source={resturant.image} />
+                <Image className='h-36 w-80  rounded-t-3xl' source={resturant.image} />
                 <View className='px-3 pb-4 space-y-2' >
                     <Text className=' text-lg font-bold' >{resturant.name} </Text>
                     <View className='flex-row items-center space-x-1' >
